@@ -1,5 +1,6 @@
 package com.example.mobsoft.mobsoft_lab3.ui.main;
-package com.example.mobsoft.mobsoft_lab3.ui.Presenter;
+
+import com.example.mobsoft.mobsoft_lab3.ui.Presenter;
 
 /**
  * Created by mobsoft on 2017. 03. 20..
@@ -7,16 +8,7 @@ package com.example.mobsoft.mobsoft_lab3.ui.Presenter;
 
 public class MainPresenter extends Presenter<MainScreen> {
 
-    private static MainPresenter instance = null;
-
-    private MainPresenter() {
-    }
-
-    public static MainPresenter getInstance() {
-        if (instance == null) {
-            instance = new MainPresenter();
-        }
-        return instance;
+    public MainPresenter() {
     }
 
     @Override
