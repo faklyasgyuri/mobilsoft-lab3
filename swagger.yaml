@@ -1,0 +1,279 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: MyRoutes Application
+basePath: /api
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  - application/xml
+  - text/xml
+produces:
+  - application/json
+  - application/xml
+  - text/xml
+  - application/javascript
+  - text/javascript
+paths:
+  /MyRoutes:
+    post:
+      tags:
+        - MyRoutes
+      summary: Létrehozunk egy új utazásokat tartalmazó tömböt a userhez
+      operationId: MyRoutes_create
+      parameters:
+        - name: accessToken
+          in: query
+          description: User access token
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Route'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Route'
+      deprecated: false
+  '/MyRoutes/{id}/exists':
+    get:
+      tags:
+        - MyRoutes
+      summary: 'Megnézzük, hogy létezik e már..'
+      operationId: MyRoutes_exists__get_MyRoutes_id_exists
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: number
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/MyRoutes/{id}':
+    head:
+      tags:
+        - MyRoutes
+      summary: 'Megnézzük, hogy adott Route létezik e már.'
+      operationId: MyRoutes_exists__head_MyRoutes_id
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: number
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    get:
+      tags:
+        - MyRoutes
+      summary: Lekérjük az adott ID-jú utat.
+      operationId: MyRoutes_findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: number
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Route'
+      deprecated: false
+    delete:
+      tags:
+        - MyRoutes
+      summary: Törlünk egy utat
+      operationId: MyRoutes_deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: number
+          format: JSON
+        - name: accessToken
+          in: query
+          description: User access token
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - MyRoutes
+      summary: Frissítjük egy utazás adatait.
+      operationId: MyRoutes_prototype_updateAttributes
+      parameters:
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: number
+          format: JSON
+        - name: accessToken
+          in: query
+          description: User access token
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Route'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Route'
+      deprecated: false
+  /MyRoutes/count:
+    get:
+      tags:
+        - MyRoutes
+      summary: Megszámolja hány utunk van
+      operationId: MyRoutes_count
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  /MyRoutesUsers:
+    post:
+      tags:
+        - MyRoutesUser
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: MyRoutesUser_create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Credential'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/MyRoutesUser'
+      deprecated: false
+  '/MyRoutesUsers/{id}':
+    get:
+      tags:
+        - MyRoutesUser
+      summary: Find a model instance by id from the data source.
+      operationId: MyRoutesUser_findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: number
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/MyRoutesUser'
+      deprecated: false
+  /MyRoutesUsers/login:
+    post:
+      tags:
+        - MyRoutesUser
+      summary: Login a user with username/email and password.
+      operationId: MyRoutesUser_login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Credential'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >-
+              The response body contains properties of the AccessToken created
+              on login.
+            type: object
+      deprecated: false
+  /MyRoutesUsers/logout:
+    post:
+      tags:
+        - MyRoutesUser
+      summary: Logout a user with access token.
+      operationId: MyRoutesUser_logout
+      parameters:
+        - name: accessToken
+          in: query
+          description: User access token
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+definitions:
+  Credential:
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  Route:
+    properties:
+      routeId:
+        type: string
+      startPlace:
+        type: string
+      endPlace:
+        type: string
+      routeDate:
+        type: string
+        format: date
+    required:
+      - routeId
+      - startPlace
+      - endPlace
+      - routeDate
+    additionalProperties: false
+  MyRoutesUser:
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - email
+    additionalProperties: false
+tags:
+  - name: Route
+  - name: MyRoutesUser
