@@ -9,6 +9,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="mobsoft_lab3.db"/>
+        <meta-data
+            android:name="VERSION"
+            android:value="1"/>
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true"/>
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.mobsoft.mobsoft_lab3.model"/>
+
         <activity android:name="com.example.mobsoft.mobsoft_lab3.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

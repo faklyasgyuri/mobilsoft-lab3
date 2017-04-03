@@ -6,8 +6,16 @@ package com.example.mobsoft.mobsoft_lab3;
 
 import android.app.Application;
 import com.example.mobsoft.mobsoft_lab3.ui.UIModule;
+import javax.inject.Inject;
+
+import com.example.mobsoft.mobsoft_lab3.repository.Repository;
+import com.example.mobsoft.mobsoft_lab3.ui.UIModule;
 
 public class MobSoftApplication extends Application {
+
+
+    @Inject
+    Repository repository;
 
     public static MobSoftApplicationComponent injector;
 
@@ -20,5 +28,9 @@ public class MobSoftApplication extends Application {
                         uIModule(
                                 new UIModule(this)
                         ).build();
+
+
+        injector.inject(this);
+        repository.open(getApplicationContext());
     }
 }
