@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import javax.inject.Inject;
+import com.example.mobsoft.mobsoft_lab3.R;
+import com.example.mobsoft.mobsoft_lab3.MobSoftApplication;
+
 
 public class AboutActivity extends AppCompatActivity implements AboutScreen {
 
@@ -18,9 +21,9 @@ public class AboutActivity extends AppCompatActivity implements AboutScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_about);
 
-        //MobSoftApplication.injector.inject(this);
+        MobSoftApplication.injector.inject(this);
     }
 
     @Override

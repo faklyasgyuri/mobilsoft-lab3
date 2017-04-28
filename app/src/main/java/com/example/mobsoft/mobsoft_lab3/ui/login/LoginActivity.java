@@ -12,6 +12,9 @@ import com.example.mobsoft.mobsoft_lab3.MobSoftApplication;
 import com.example.mobsoft.mobsoft_lab3.R;
 
 import javax.inject.Inject;
+import com.example.mobsoft.mobsoft_lab3.R;
+import com.example.mobsoft.mobsoft_lab3.MobSoftApplication;
+
 
 public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
@@ -21,9 +24,9 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        //MobSoftApplication.injector.inject(this);
+        MobSoftApplication.injector.inject(this);
     }
 
     @Override

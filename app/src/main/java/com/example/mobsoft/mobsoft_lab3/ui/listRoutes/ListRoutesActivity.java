@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import javax.inject.Inject;
+import com.example.mobsoft.mobsoft_lab3.R;
+import com.example.mobsoft.mobsoft_lab3.MobSoftApplication;
+
 
 public class ListRoutesActivity extends AppCompatActivity implements ListRoutesScreen {
 
@@ -18,9 +21,9 @@ public class ListRoutesActivity extends AppCompatActivity implements ListRoutesS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_listroutes);
 
-        //MobSoftApplication.injector.inject(this);
+        MobSoftApplication.injector.inject(this);
     }
 
     @Override

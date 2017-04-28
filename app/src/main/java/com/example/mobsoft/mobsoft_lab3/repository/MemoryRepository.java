@@ -14,6 +14,7 @@ import java.util.List;
  * Created by mobsoft on 2017. 04. 03..
  */
 
+//default repository
 public class MemoryRepository implements Repository{
 
     public static List<MyRoutesUser> myRouteUsers;

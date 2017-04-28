@@ -6,6 +6,10 @@ package com.example.mobsoft.mobsoft_lab3;
 
 
 import com.example.mobsoft.mobsoft_lab3.ui.UIModule;
+import com.example.mobsoft.mobsoft_lab3.ui.about.AboutActivity;
+import com.example.mobsoft.mobsoft_lab3.ui.addRoute.AddRouteActivity;
+import com.example.mobsoft.mobsoft_lab3.ui.listRoutes.ListRoutesActivity;
+import com.example.mobsoft.mobsoft_lab3.ui.login.LoginActivity;
 import com.example.mobsoft.mobsoft_lab3.ui.main.MainActivity;
 
 import javax.inject.Singleton;
@@ -21,6 +25,15 @@ import dagger.Component;
 @Singleton
 @Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class})
 public interface MobSoftApplicationComponent {
+
+    void inject(AboutActivity aboutActivity);
+
+    void inject(AddRouteActivity addRouteActivity);
+
+    void inject(ListRoutesActivity listRoutesActivity);
+
+    void inject(LoginActivity loginActivity);
+
     void inject(MainActivity mainActivity);
 
     void inject(RouteInteractor routeInteractor);
