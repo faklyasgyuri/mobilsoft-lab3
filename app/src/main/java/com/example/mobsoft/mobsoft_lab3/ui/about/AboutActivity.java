@@ -16,7 +16,7 @@ import com.example.mobsoft.mobsoft_lab3.MobSoftApplication;
 public class AboutActivity extends AppCompatActivity implements AboutScreen {
 
     @Inject
-    AboutPresenter loginPresenter;
+    AboutPresenter aboutPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +29,13 @@ public class AboutActivity extends AppCompatActivity implements AboutScreen {
     @Override
     protected void onStart() {
         super.onStart();
-        loginPresenter.attachScreen(this);
+        aboutPresenter.attachScreen(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        loginPresenter.detachScreen();
+        aboutPresenter.detachScreen();
     }
 
     @Override

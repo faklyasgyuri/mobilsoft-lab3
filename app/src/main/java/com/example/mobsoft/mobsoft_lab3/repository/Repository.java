@@ -27,9 +27,9 @@ public interface Repository {
     void updateRoute(Route route);
     void removeRoute(Route route);
 
-    void saveUser(MyRoutesUser user);
-
     void updateRoutes(List<Route> routes);
+
+    void saveUser(MyRoutesUser user);
 
     boolean isInDB(Credential cred);
     boolean isInDB(MyRoutesUser user);

@@ -27,7 +27,7 @@ public class RouteInteractor {
         MobSoftApplication.injector.inject(this);
     }
 
-    public void getFavourites() {
+    public void getRoutes() {
         GetRouteEvent event = new GetRouteEvent();
         try {
             List<Route> routes = repository.getRoutes();
@@ -39,12 +39,12 @@ public class RouteInteractor {
         }
     }
 
-    public void saveFavourites(Route routes) {
+    public void saveRoute(Route route) {
 
         SaveRouteEvent event = new SaveRouteEvent();
-        event.setRoute(routes);
+        event.setRoute(route);
         try {
-            repository.saveRoute(routes);
+            repository.saveRoute(route);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);
@@ -52,7 +52,7 @@ public class RouteInteractor {
         }
     }
 
-    public void updateFavourites(List<Route> routes) {
+    public void updateRoutes(List<Route> routes) {
         try {
             repository.updateRoutes(routes);
         } catch (Exception e) {
@@ -60,11 +60,11 @@ public class RouteInteractor {
         }
     }
 
-    public void removeFavourites(Route routes) {
+    public void removeRoute(Route route) {
         RemoveRouteEvent event = new RemoveRouteEvent();
-        event.setRoute(routes);
+        event.setRoute(route);
         try {
-            repository.removeRoute(routes);
+            repository.removeRoute(route);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);

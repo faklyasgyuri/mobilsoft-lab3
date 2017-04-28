@@ -5,6 +5,7 @@ package com.example.mobsoft.mobsoft_lab3;
  */
 
 
+import com.example.mobsoft.mobsoft_lab3.interactor.myrouteuser.UserInteractor;
 import com.example.mobsoft.mobsoft_lab3.ui.UIModule;
 import com.example.mobsoft.mobsoft_lab3.ui.about.AboutActivity;
 import com.example.mobsoft.mobsoft_lab3.ui.addRoute.AddRouteActivity;
@@ -37,6 +38,8 @@ public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
 
     void inject(RouteInteractor routeInteractor);
+
+    void inject(UserInteractor userInteractor);
 
     void inject(MobSoftApplication mobSoftApplication);
 

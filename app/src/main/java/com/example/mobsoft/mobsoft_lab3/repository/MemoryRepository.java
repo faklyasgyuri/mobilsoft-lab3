@@ -22,9 +22,9 @@ public class MemoryRepository implements Repository{
 
     @Override
     public void open(Context context) {
-        Route r1 = new Route("1", "BUD", "SYD", new Date());
-        Route r2 = new Route("2", "BUD", "DEB", new Date());
-        Route r3 = new Route("3", "LON", "BUD", new Date());
+        Route r1 = new Route("1", "BUD", "SYD", new Date(), 1);
+        Route r2 = new Route("2", "BUD", "DEB", new Date(), 2);
+        Route r3 = new Route("3", "LON", "BUD", new Date(), 3);
 
         routes = new ArrayList<>();
         routes.add(r1);
